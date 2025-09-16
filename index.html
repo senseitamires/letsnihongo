@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's nihonGO! - Aulas de Japonês com Tamires Sensei</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #8E2B45;
+            --color-primary-light: #AD4A68;
+            --color-secondary: #2c3e50;
+            --color-accent: #f9a826;
+            --color-light: #f5f5f5;
+            --color-dark: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--color-light);
+            color: var(--color-dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--color-accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80') no-repeat center center/cover;
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e59400;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--color-secondary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--color-primary);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--color-light);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--color-secondary);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--color-light);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            object-fit: cover;
+            object-position: center top;
+        }
+        
+        /* Qualifications */
+        .qualifications {
+            padding: 40px 0;
+            background-color: white;
+        }
+        
+        .qualifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .qualification-item {
+            background-color: var(--color-light);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .qualification-icon {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--color-light);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .platform-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--color-primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            flex-grow: 1;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--color-primary-light);
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            opacity: 0.3;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: auto;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .rating {
+            color: var(--color-accent);
+            margin-top: 5px;
+        }
+        
+        /* Calendly Section */
+        .calendly-section {
+            padding: 80px 0;
+            background-color: var(--color-light);
+            text-align: center;
+        }
+        
+        .calendly-inline-widget {
+            min-width: 320px;
+            height: 630px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 30px auto 0;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn-light {
+            background-color: white;
+            color: var(--color-primary);
+        }
+        
+        .btn-light:hover {
+            background-color: var(--color-light);
+            color: var(--color-primary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--color-secondary);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: white;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--color-primary);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p, .footer-column a {
+            margin-bottom: 10px;
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: var(--color-primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .calendly-inline-widget {
+                height: 700px;
+            }
+
+            .about-image img {
+                max-height: 400px;
+                object-position: center 25%;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .about-image img {
+                height: 450px;
+                object-position: center top;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon"><i class="fas fa-language"></i></span>
+                    <span class="logo-text">Let's nihonGO!</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#testimonials">Depoimentos</a></li>
+                        <li><a href="#agendamento">Agendar Aula</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Aprenda Japonês de Forma Personalizada e Divertida</h1>
+                <p>Com professora com mais de 8 anos de experiência e mais de 250 alunos atendidos em diversos países!</p>
+                <a href="#agendamento" class="btn">Agendar Aula Experimental Gratuita</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="services">
+        <div class="container">
+            <h2 class="section-title">Como Funcionam as Aulas</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Aulas Online</h3>
+                    <p>Aulas por Skype, Zoom, Google Meet ou Preply, com flexibilidade de horário e ambiente confortável.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Para Todos os Níveis</h3>
+                    <p>Do iniciante ao avançado, para todas as idades, com material personalizado conforme seus objetivos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Preparação para Proficiência</h3>
+                    <p>Preparação completa para o JLPT (Exame de Proficiência), do N5 ao N1, com material específico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Sobre a Professora</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Tamires Sensei</h3>
+                    <p>Olá! Sou Tamires, professora certificada de japonês com mais de 8 anos de experiência e mais de 250 alunos atendidos em diversos países.</p>
+                    <p>Tenho certificação JLPT N1 e formação pelo Centro Brasileiro de Língua Japonesa (CBLJ).</p>
+                    <p>Sou japonesa de terceira geração e vivi no Japão em dois períodos diferentes (o mais recente foi de 2014 a 2017, quando trabalhei na Sony).</p>
+                    <p>Moro atualmente em Curitiba e sou apaixonada por tudo que envolve a cultura japonesa: desde a língua até animes, gastronomia e cotidiano.</p>
+                    <p>Também amo gatos, filmes e jogos 🎮🐱</p>
+                    <p>Dou aulas particulares de japonês desde 2017, com foco total em personalização. Já ajudei alunos de diversos perfis: desde iniciantes até candidatos a bolsas como o MEXT e provas como o JLPT (N5 ao N1).</p>
+                </div>
+                <div class="about-image">
+                    <a href="https://ibb.co/CGJRY6p"><img src="https://i.ibb.co/SCQFMcD/Chat-GPT-Image-15-de-set-de-2025-00-54-31.png" alt="Tamires sensei" border="0"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualifications Section -->
+    <section class="qualifications">
+        <div class="container">
+            <h2 class="section-title">Minha Metodologia</h2>
+            <div class="qualifications-grid">
+                <div class="qualification-item">
+                    <div class="qualification-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Aulas Personalizadas</h3>
+                    <p>Conteúdo adaptado à rotina, metas e ritmo de cada aluno</p>
+                </div>
+                <div class="qualification-item">
+                    <div class="qualification-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Materiais Diversificados</h3>
+                    <p>Uso de livros, vídeos, sites e exercícios personalizados</p>
+                </div>
+                <div class="qualification-item">
+                    <div class="qualification-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Foco em Conversação</h3>
+                    <p>Conteúdos práticos com temas atuais do seu interesse</p>
+                </div>
+                <div class="qualification-item">
+                    <div class="qualification-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Preparação para Exames</h3>
+                    <p>Preparação especializada para JLPT, MEXT e outros exames</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">O que os Alunos Dizem</h2>
+            <div class="testimonial-grid" id="testimonial-container">
+                <!-- Os depoimentos serão carregados via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendly Section -->
+    <section class="calendly-section" id="agendamento">
+        <div class="container">
+            <h2 class="section-title">Agende sua Aula Experimental</h2>
+            <p>Reserve sua aula experimental gratuita de 45 minutos e descubra como aprender japonês pode ser divertido e eficiente!</p>
+            
+            <!-- Widget do Calendly com link corrigido -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/tamiresyasmin/30min" style="min-width:320px;height:630px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Pronto para Começar sua Jornada?</h2>
+            <p>Entre em contato diretamente se tiver dúvidas ou quiser mais informações sobre as aulas!</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://wa.me/5511975013101" class="btn btn-light">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="mailto:tamiresyasmin@gmail.com" class="btn btn-light">
+                    <i class="fas fa-envelope"></i> E-mail
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Let's nihonGO!</h3>
+                    <p>Aprenda japonês de forma personalizada e divertida com uma professora experiente.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/5511975013101"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/letsnihongocomtamires"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-phone"></i> (11) 97501-3101</p>
+                    <p><i class="fas fa-envelope"></i> tamiresyasmin@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Aulas Online - Global</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Encontre-me também em</h3>
+                    <a href="https://preply.com/pt/professor/49010"><i class="fab fa-preply"></i> Preply</a>
+                    <a href="https://www.superprof.com.br/professora-certificada-japones-com-anos-experiencia-aulas-personalizadas-para-todos-niveis.html"><i class="fas fa-star"></i> Superprof</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Let's nihonGO! - Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Depoimentos REAIS dos alunos da Tamires - coletados dos perfis
+        const testimonials = [
+            {
+                text: "Estou muito grato por ter tido a oportunidade de estudar japonês com a Sensei Tamires Yasmin! Sua paciência e entusiasmo são contagiosos - ela torna o aprendizado de um idioma divertido e envolvente. O que eu mais amo nas minhas aulas com a Tamires é como ela divide conceitos complexos em partes gerenciáveis, focando em frases práticas do dia a dia que realmente me ajudam a me comunicar. Sempre que tive perguntas ou dúvidas, ela está sempre feliz em esclarecer e fornecer suporte adicional. Mais o que realmente a diferencia é seu senso de humor - ela tem uma maneira de encontrar o humor mesmo nas situações mais constrangedoras relacionadas ao idioma, o que me mantém rindo e motivado! No geral, recomendo muito a Sensei Tamires Yasmin para qualquer pessoa que esteja procurando uma experiência de aprendizado de japonês que seja solidária, envolvente e divertida. Ela é uma professora incrível e me sinto sortudo por ter sua orientação!",
+                author: "Andre Kano",
+                platform: "Preply",
+                rating: 5,
+                date: "Abril 2025"
+            },
+            {
+                text: "Tamires-sensei envolve o conteúdo de uma forma leve e muito interessante. Ela consegue adaptar a didática de suas aulas, de acordo com a sua necessidade e foco. Sempre me assustei como a aula passava tão rápido por conta da leveza e diversão que ela a conduz. Recomendo!!!",
+                author: "Guilherme",
+                platform: "Preply",
+                rating: 5,
+                date: "Maio 2023"
+            },
+            {
+                text: "Tamires is a great teacher, very patient and knowledgeable about Japanese culture and grammar. She's got a well-structured programme with visuals and pacing to help with different levels of learning. I recommend studying with her whether you're an English or a Portuguese speaker, or, like me, want to practice Portuguese while learning Japanese.",
+                author: "Pavel",
+                platform: "Preply",
+                rating: 5,
+                date: "Agosto 2022"
+            },
+            {
+                text: "Tamires先生 has an objective based and highly adaptable approach to teaching, which has been extremely effective. Several months have passed since we started to work together, and I have been building a good vocabulary and understanding of Japanese grammar. Nowadays, I am more confident than I was four months before, thanks to the Tamires Sense's work She is super patient and is capable of teaching Japanese to any level/objective. Whether your aim is basic communication or fluency. Highly recommended!",
+                author: "Custódio",
+                platform: "Preply",
+                rating: 5,
+                date: "Junho 2019"
+            },
+            {
+                text: "Tamires Sensei is an excellent professor because she has a true vocation for teaching Japanese I have been learning with her for a year now and I've enjoyed it very much, we laugh a lot (in Japanese, ははは). I've roundly developed talking, she encourages me kindly and in fun way. Sometimes teaches me from Spanish, sometimes from English, she is very flexible and at the same time, she encourages me to move forward.",
+                author: "Camilo",
+                platform: "Preply",
+                rating: 5,
+                date: "Junho 2019"
+            },
+            {
+                text: "Perfeito! Eu não poderia estar mais satisfeito com as aulas de japonês que tenho tido com a Tamires san! Se pudesse dar mais de cinco estrelas, eu daria! Desde o início do curso, ela tem mostrado uma habilidade notável em tornar o aprendizado do japonês acessível e envolvente. Sua paciência é algo digno de nota. Sempre disposta a esclarecer dúvidas, ela demonstra um compromisso notável com o sucesso de cada aluno. A atmosfera acolhedora que ela cria em sala de aula encoraja a participação e promove um ambiente de aprendizado colaborativo. Em resumo, estou extremamente satisfeito com as aulas e recomendo a Tamires a todos que desejam aprender japonês de forma eficaz e divertida. Muito obrigado, Tamires san, por proporcionar uma experiência de aprendizado tão excepcional!",
+                author: "Gustavo Kenji",
+                platform: "Superprof",
+                rating: 5,
+                date: "Dezembro 2023"
+            },
+            {
+                text: "Perfeito! Procurei por um professor de japonês para me ajudar a preparar para meu intercâmbio, com 6 meses de estudo no total e menos de 3 meses de aula com a Tamires, ela me ajudou a passar no exame JLPT-N5, com uma ótima didática a professora adaptou as aulas para minhas dificuldades em particular (tenho dificuldade em memorização e preciso que tudo seja repetido múltiplas vezes que gera frustração na maioria dos professores. Tendo um material excelente e de fácil absorção recomendo a professora para todos os níveis, sendo o aluno iniciante procurando uma entrada nessa jornada de aprendizado ou um aluno avançado procurando uma parceira de conversação.",
+                author: "Marco Ventura",
+                platform: "Superprof",
+                rating: 5,
+                date: "Dezembro 2023"
+            },
+            {
+                text: "A Tami é uma ótima professora, eu já faço japonês com ela há um tempinho, achei que ia fazer só uns 2-3 meses no máximo, mas as aulas são tão agradáveis que continuei e agora até estou considerando tirar certificações. Super indico, até minha mãe está estudando com ela rs",
+                author: "Alessandra Midori",
+                platform: "Superprof",
+                rating: 5,
+                date: "Dezembro 2022"
+            }
+        ];
+
+        // Função para selecionar 3 depoimentos aleatórios
+        function getRandomTestimonials() {
+            const shuffled = [...testimonials].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 3);
+        }
+
+        // Função para gerar estrelas de avaliação
+        function generateStars(rating) {
+            let stars = '';
+            for (let i = 0; i < 5; i++) {
+                if (i < rating) {
+                    stars += '<i class="fas fa-star"></i>';
+                } else {
+                    stars += '<i class="far fa-star"></i>';
+                }
+            }
+            return stars;
+        }
+
+        // Função para renderizar os depoimentos
+        function renderTestimonials() {
+            const container = document.getElementById('testimonial-container');
+            const selectedTestimonials = getRandomTestimonials();
+            
+            container.innerHTML = '';
+            
+            selectedTestimonials.forEach(testimonial => {
+                const testimonialHTML = `
+                    <div class="testimonial-card">
+                        <div class="platform-badge">
+                            <i class="${testimonial.platform === 'Preply' ? 'fab fa-preply' : 'fas fa-star'}"></i> 
+                            ${testimonial.platform}
+                        </div>
+                        <div class="testimonial-text">
+                            ${testimonial.text}
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">${testimonial.author.charAt(0)}</div>
+                            <div>
+                                <strong>${testimonial.author}</strong>
+                                <div class="rating">
+                                    ${generateStars(testimonial.rating)}
+                                </div>
+                                <small>${testimonial.date}</small>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                container.innerHTML += testimonialHTML;
+            });
+        }
+
+        // Carregar os depoimentos quando a página for carregada
+        document.addEventListener('DOMContentLoaded', renderTestimonials);
+    </script>
+</body>
+</html>
