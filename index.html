@@ -58,13 +58,26 @@
             gap: 10px;
         }
         
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
         .logo-text {
             font-size: 1.8rem;
             font-weight: 700;
-        }
-        
-        .logo-icon {
-            font-size: 2rem;
         }
         
         nav ul {
@@ -479,6 +492,15 @@
             .testimonial-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .logo-image {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
         }
 
         @media (min-width: 769px) {
@@ -495,7 +517,9 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <span class="logo-icon"><i class="fas fa-language"></i></span>
+                    <div class="logo-image">
+                        <img src="https://i.ibb.co/SCQFMcD/Chat-GPT-Image-15-de-set-de-2025-00-54-31.png" alt="Tamires Sensei">
+                    </div>
                     <span class="logo-text">Let's nihonGO!</span>
                 </div>
                 <nav>
@@ -562,13 +586,13 @@
                     <h3>Tamires Sensei</h3>
                     <p>Olá! Sou Tamires, professora certificada de japonês com mais de 8 anos de experiência e mais de 250 alunos atendidos em diversos países.</p>
                     <p>Tenho certificação JLPT N1 e formação pelo Centro Brasileiro de Língua Japonesa (CBLJ).</p>
-                    <p>Sou japonesa de terceira geração e vivi no Japão em dois períodos diferentes (o mais recente foi de 2014 a 2017, quando trabalhei na Sony).</p>
+                    <p>Sou japonesa de terceira geração e vivi no Japão em dois períodos diferentes (o mais recente foi de 2014 à 2017, quando trabalhei na Sony).</p>
                     <p>Moro atualmente em Curitiba e sou apaixonada por tudo que envolve a cultura japonesa: desde a língua até animes, gastronomia e cotidiano.</p>
                     <p>Também amo gatos, filmes e jogos 🎮🐱</p>
                     <p>Dou aulas particulares de japonês desde 2017, com foco total em personalização. Já ajudei alunos de diversos perfis: desde iniciantes até candidatos a bolsas como o MEXT e provas como o JLPT (N5 ao N1).</p>
                 </div>
                 <div class="about-image">
-                    <a href="https://ibb.co/CGJRY6p"><img src="https://i.ibb.co/SCQFMcD/Chat-GPT-Image-15-de-set-de-2025-00-54-31.png" alt="Tamires sensei" border="0"></a>
+                    <img src="https://i.ibb.co/SCQFMcD/Chat-GPT-Image-15-de-set-de-2025-00-54-31.png" alt="Tamires sensei">
                 </div>
             </div>
         </div>
@@ -683,7 +707,7 @@
         // Depoimentos REAIS dos alunos da Tamires - coletados dos perfis
         const testimonials = [
             {
-                text: "Estou muito grato por ter tido a oportunidade de estudar japonês com a Sensei Tamires Yasmin! Sua paciência e entusiasmo são contagiosos - ela torna o aprendizado de um idioma divertido e envolvente. O que eu mais amo nas minhas aulas com a Tamires é como ela divide conceitos complexos em partes gerenciáveis, focando em frases práticas do dia a dia que realmente me ajudam a me comunicar. Sempre que tive perguntas ou dúvidas, ela está sempre feliz em esclarecer e fornecer suporte adicional. Mais o que realmente a diferencia é seu senso de humor - ela tem uma maneira de encontrar o humor mesmo nas situações mais constrangedoras relacionadas ao idioma, o que me mantém rindo e motivado! No geral, recomendo muito a Sensei Tamires Yasmin para qualquer pessoa que esteja procurando uma experiência de aprendizado de japonês que seja solidária, envolvente e divertida. Ela é uma professora incrível e me sinto sortudo por ter sua orientação!",
+                text: "Estou muito grato por ter tido a oportunidade de estudar japonês com a Sensei Tamires Yasmin! Sua paciência e entusiasmo são contagiosos - ela torna o aprendizado de um idioma divertido e envolvente. O que eu mais amo nas minhas aulas com a Tamires é como ela divide conceitos complexos em partes gerenciáveis, focando em frases práticas do dia a day que realmente me ajudam a me comunicar. Sempre que tive perguntas ou dúvidas, ela está sempre feliz em esclarecer e fornecer suporte adicional. Mas o que realmente a diferencia é seu senso de humor - ela tem uma maneira de encontrar o humor mesmo nas situações mais constrangedoras relacionadas ao idioma, o que me mantém rindo e motivado! No geral, recomendo muito a Sensei Tamires Yasmin para qualquer pessoa que esteja procurando uma experiência de aprendizado de japonês que seja solidária, envolvente e divertida. Ela é uma professora incrível e me sinto sortudo por ter sua orientação!",
                 author: "Andre Kano",
                 platform: "Preply",
                 rating: 5,
@@ -732,7 +756,7 @@
                 date: "Dezembro 2023"
             },
             {
-                text: "A Tami é uma ótima professora, eu já faço japonês com ela há um tempinho, achei que ia fazer só uns 2-3 meses no máximo, mas as aulas são tão agradáveis que continuei e agora até estou considerando tirar certificações. Super indico, até minha mãe está estudando com ela rs",
+                text: "A Tami é uma ótima professora, eu já faço japonês com ela há um tempinho, achei que ia fazer só uns 2-3 meses no máximo, mais as aulas são tão agradáveis que continuei e agora até estou considerando tirar certificações. Super indico, até minha mãe está estudando com ela rs",
                 author: "Alessandra Midori",
                 platform: "Superprof",
                 rating: 5,
