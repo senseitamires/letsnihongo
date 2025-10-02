@@ -592,8 +592,7 @@
     <div class="language-selector">
         <button class="language-btn" id="languageToggle">
             <i class="fas fa-globe"></i>
-            <span class="lang-pt">Português</span>
-            <span class="lang-en">English</span>
+            <span id="languageText">English</span>
             <i class="fas fa-chevron-down"></i>
         </button>
     </div>
@@ -780,13 +779,22 @@
             
             <!-- Widget do Calendly dinâmico -->
             <div class="calendly-container">
-                <iframe 
-                    id="calendly-widget"
-                    class="calendly-widget"
-                    src="https://calendly.com/tamiresyasmin/japones"
-                    frameborder="0"
-                    title="Agende sua aula experimental"
-                ></iframe>
+                <div id="calendly-pt" class="calendly-widget-container">
+                    <iframe 
+                        class="calendly-widget"
+                        src="https://calendly.com/tamiresyasmin/japones?hide_gdpr_banner=1&locale=pt-BR"
+                        frameborder="0"
+                        title="Agende sua aula experimental"
+                    ></iframe>
+                </div>
+                <div id="calendly-en" class="calendly-widget-container" style="display: none;">
+                    <iframe 
+                        class="calendly-widget"
+                        src="https://calendly.com/tamiresyasmin/japones?hide_gdpr_banner=1&locale=en"
+                        frameborder="0"
+                        title="Book your trial class"
+                    ></iframe>
+                </div>
             </div>
         </div>
     </section>
@@ -851,7 +859,11 @@
     <script>
         // Language Toggle Functionality
         const languageToggle = document.getElementById('languageToggle');
+        const languageText = document.getElementById('languageText');
         let currentLanguage = 'pt';
+        
+        // Configuração inicial - botão mostra "English" quando está em português
+        languageText.textContent = 'English';
         
         function switchLanguage(lang) {
             if (lang === 'en') {
@@ -863,11 +875,14 @@
                     el.style.display = 'block';
                 });
                 currentLanguage = 'en';
-                languageToggle.querySelector('.lang-pt').style.display = 'none';
-                languageToggle.querySelector('.lang-en').style.display = 'inline';
                 
-                // Atualizar Calendly para inglês
-                updateCalendlyWidget('en');
+                // Atualizar texto do botão - mostra "Português" quando está em inglês
+                languageText.textContent = 'Português';
+                
+                // Atualizar Calendly
+                document.getElementById('calendly-pt').style.display = 'none';
+                document.getElementById('calendly-en').style.display = 'block';
+                
             } else {
                 // Switch to Portuguese
                 document.querySelectorAll('.lang-pt').forEach(el => {
@@ -877,26 +892,13 @@
                     el.style.display = 'none';
                 });
                 currentLanguage = 'pt';
-                languageToggle.querySelector('.lang-pt').style.display = 'inline';
-                languageToggle.querySelector('.lang-en').style.display = 'none';
                 
-                // Atualizar Calendly para português
-                updateCalendlyWidget('pt');
-            }
-        }
-        
-        function updateCalendlyWidget(lang) {
-            const widget = document.getElementById('calendly-widget');
-            if (widget) {
-                let calendlyUrl = 'https://calendly.com/tamiresyasmin/japones';
-                if (lang === 'en') {
-                    // Forçar o Calendly em inglês
-                    calendlyUrl += '?hide_gdpr_banner=1&locale=en';
-                } else {
-                    calendlyUrl += '?hide_gdpr_banner=1&locale=pt-BR';
-                }
+                // Atualizar texto do botão - mostra "English" quando está em português
+                languageText.textContent = 'English';
                 
-                widget.src = calendlyUrl;
+                // Atualizar Calendly
+                document.getElementById('calendly-pt').style.display = 'block';
+                document.getElementById('calendly-en').style.display = 'none';
             }
         }
         
