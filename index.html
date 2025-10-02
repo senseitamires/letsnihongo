@@ -12,7 +12,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="https://i.ibb.co/SCQFMcD/Chat-GPT-Image-15-de-set-de-2025-00-54-31.png">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <style>
         :root {
             --color-primary: #8E2B45;
@@ -382,13 +381,19 @@
             text-align: center;
         }
         
-        .calendly-inline-widget {
-            min-width: 320px;
-            height: 630px;
+        .calendly-container {
+            position: relative;
+            min-height: 700px;
+        }
+        
+        .calendly-widget {
+            width: 100%;
+            height: 700px;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             margin: 30px auto 0;
+            border: none;
         }
         
         /* CTA Section */
@@ -452,7 +457,9 @@
         
         .footer-column p, .footer-column a {
             margin-bottom: 10px;
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             color: #ccc;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -460,6 +467,22 @@
         
         .footer-column a:hover {
             color: var(--color-primary);
+        }
+        
+        .location-line {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+            flex-wrap: wrap;
+        }
+        
+        .location-line i {
+            flex-shrink: 0;
+        }
+        
+        .location-text {
+            white-space: nowrap;
         }
         
         .social-links {
@@ -517,7 +540,7 @@
                 flex-direction: column;
             }
             
-            .calendly-inline-widget {
+            .calendly-widget {
                 height: 700px;
             }
 
@@ -545,6 +568,14 @@
                 right: 0;
                 text-align: center;
                 margin-bottom: 15px;
+            }
+            
+            .location-line {
+                white-space: normal;
+            }
+            
+            .location-text {
+                white-space: normal;
             }
         }
 
@@ -747,9 +778,16 @@
             <p class="lang-pt">Reserve sua aula experimental gratuita de 45 minutos e descubra como aprender japonês pode ser divertido e eficiente!</p>
             <p class="lang-en">Book your free 45-minute trial class and discover how learning Japanese can be fun and efficient!</p>
             
-            <!-- Widget do Calendly com link corrigido -->
-            <div class="calendly-inline-widget" data-url="https://calendly.com/tamiresyasmin/30min" style="min-width:320px;height:630px;"></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Widget do Calendly dinâmico -->
+            <div class="calendly-container">
+                <iframe 
+                    id="calendly-widget"
+                    class="calendly-widget"
+                    src="https://calendly.com/tamiresyasmin/japones"
+                    frameborder="0"
+                    title="Agende sua aula experimental"
+                ></iframe>
+            </div>
         </div>
     </section>
 
@@ -791,7 +829,11 @@
                     <h3 class="lang-en">Contact</h3>
                     <p><i class="fas fa-phone"></i> (11) 97501-3101</p>
                     <p><i class="fas fa-envelope"></i> tamiresyasmin@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> <span class="lang-pt">Aulas Online - Global</span><span class="lang-en">Online Classes/Global</span></p>
+                    <div class="location-line">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="lang-pt location-text">Aulas Online - Global</span>
+                        <span class="lang-en location-text">Online Classes - Global</span>
+                    </div>
                 </div>
                 <div class="footer-column">
                     <h3 class="lang-pt">Encontre-me também em</h3>
@@ -811,8 +853,8 @@
         const languageToggle = document.getElementById('languageToggle');
         let currentLanguage = 'pt';
         
-        languageToggle.addEventListener('click', function() {
-            if (currentLanguage === 'pt') {
+        function switchLanguage(lang) {
+            if (lang === 'en') {
                 // Switch to English
                 document.querySelectorAll('.lang-pt').forEach(el => {
                     el.style.display = 'none';
@@ -823,6 +865,9 @@
                 currentLanguage = 'en';
                 languageToggle.querySelector('.lang-pt').style.display = 'none';
                 languageToggle.querySelector('.lang-en').style.display = 'inline';
+                
+                // Atualizar Calendly para inglês
+                updateCalendlyWidget('en');
             } else {
                 // Switch to Portuguese
                 document.querySelectorAll('.lang-pt').forEach(el => {
@@ -834,6 +879,32 @@
                 currentLanguage = 'pt';
                 languageToggle.querySelector('.lang-pt').style.display = 'inline';
                 languageToggle.querySelector('.lang-en').style.display = 'none';
+                
+                // Atualizar Calendly para português
+                updateCalendlyWidget('pt');
+            }
+        }
+        
+        function updateCalendlyWidget(lang) {
+            const widget = document.getElementById('calendly-widget');
+            if (widget) {
+                let calendlyUrl = 'https://calendly.com/tamiresyasmin/japones';
+                if (lang === 'en') {
+                    // Forçar o Calendly em inglês
+                    calendlyUrl += '?hide_gdpr_banner=1&locale=en';
+                } else {
+                    calendlyUrl += '?hide_gdpr_banner=1&locale=pt-BR';
+                }
+                
+                widget.src = calendlyUrl;
+            }
+        }
+        
+        languageToggle.addEventListener('click', function() {
+            if (currentLanguage === 'pt') {
+                switchLanguage('en');
+            } else {
+                switchLanguage('pt');
             }
         });
 
@@ -927,7 +998,7 @@
                 const testimonialHTML = `
                     <div class="testimonial-card">
                         <div class="platform-badge">
-                            <i class="${testimonial.platform === 'Preply' ? 'fab fa-preply' : 'fas fa-star'}"></i> 
+                            <i class="${testimonial.platform === 'Preply' ? 'fas fa-star' : 'fas fa-star'}"></i> 
                             ${testimonial.platform}
                         </div>
                         <div class="testimonial-text">
