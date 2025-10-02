@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Let's nihonGO! - Aulas de Japonês com Tamires Sensei</title>
+    <title>Let's nihonGO! - Japanese Lessons with Tamires Sensei</title>
+    
+    <!-- Favicon Personalizado -->
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/SCQFMcD/Chat-GPT-Image-15-de-set-de-2025-00-54-31.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/SCQFMcD/Chat-GPT-Image-15-de-set-de-2025-00-54-31.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/SCQFMcD/Chat-GPT-Image-15-de-set-de-2025-00-54-31.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://i.ibb.co/SCQFMcD/Chat-GPT-Image-15-de-set-de-2025-00-54-31.png">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <style>
@@ -33,6 +40,32 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+        
+        /* Language Selector */
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 101;
+        }
+        
+        .language-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .language-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
         
         /* Header */
@@ -459,6 +492,10 @@
             font-size: 0.9rem;
         }
         
+        /* Language Content */
+        .lang-pt { display: block; }
+        .lang-en { display: none; }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .header-content {
@@ -501,6 +538,14 @@
             .logo-text {
                 font-size: 1.5rem;
             }
+            
+            .language-selector {
+                position: relative;
+                top: 0;
+                right: 0;
+                text-align: center;
+                margin-bottom: 15px;
+            }
         }
 
         @media (min-width: 769px) {
@@ -512,6 +557,16 @@
     </style>
 </head>
 <body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="language-btn" id="languageToggle">
+            <i class="fas fa-globe"></i>
+            <span class="lang-pt">Português</span>
+            <span class="lang-en">English</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -524,12 +579,12 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#about">Sobre</a></li>
-                        <li><a href="#services">Serviços</a></li>
-                        <li><a href="#testimonials">Depoimentos</a></li>
-                        <li><a href="#agendamento">Agendar Aula</a></li>
-                        <li><a href="#contact">Contato</a></li>
+                        <li><a href="#home" class="lang-pt">Início</a><a href="#home" class="lang-en">Home</a></li>
+                        <li><a href="#about" class="lang-pt">Sobre</a><a href="#about" class="lang-en">About</a></li>
+                        <li><a href="#services" class="lang-pt">Serviços</a><a href="#services" class="lang-en">Services</a></li>
+                        <li><a href="#testimonials" class="lang-pt">Depoimentos</a><a href="#testimonials" class="lang-en">Testimonials</a></li>
+                        <li><a href="#agendamento" class="lang-pt">Agendar Aula</a><a href="#agendamento" class="lang-en">Book a Class</a></li>
+                        <li><a href="#contact" class="lang-pt">Contato</a><a href="#contact" class="lang-en">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -540,9 +595,14 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Aprenda Japonês de Forma Personalizada e Divertida</h1>
-                <p>Com professora com mais de 8 anos de experiência e mais de 250 alunos atendidos em diversos países!</p>
-                <a href="#agendamento" class="btn">Agendar Aula Experimental Gratuita</a>
+                <h1 class="lang-pt">Aprenda Japonês de Forma Personalizada e Divertida</h1>
+                <h1 class="lang-en">Learn Japanese in a Personalized and Fun Way</h1>
+                
+                <p class="lang-pt">Com professora com mais de 8 anos de experiência e mais de 250 alunos atendidos em diversos países!</p>
+                <p class="lang-en">With a teacher with over 8 years of experience and more than 250 students from different countries!</p>
+                
+                <a href="#agendamento" class="btn lang-pt">Agendar Aula Experimental Gratuita</a>
+                <a href="#agendamento" class="btn lang-en">Book a Free Trial Class</a>
             </div>
         </div>
     </section>
@@ -550,28 +610,36 @@
     <!-- Features Section -->
     <section class="features" id="services">
         <div class="container">
-            <h2 class="section-title">Como Funcionam as Aulas</h2>
+            <h2 class="section-title lang-pt">Como Funcionam as Aulas</h2>
+            <h2 class="section-title lang-en">How Classes Work</h2>
+            
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-laptop"></i>
                     </div>
-                    <h3>Aulas Online</h3>
-                    <p>Aulas por Teams, Zoom, Google Meet ou Preply, com flexibilidade de horário e ambiente confortável.</p>
+                    <h3 class="lang-pt">Aulas Online</h3>
+                    <h3 class="lang-en">Online Classes</h3>
+                    <p class="lang-pt">Aulas por Skype, Zoom, Google Meet ou Preply, com flexibilidade de horário e ambiente confortável.</p>
+                    <p class="lang-en">Classes via Skype, Zoom, Google Meet or Preply, with flexible scheduling and a comfortable environment.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-user-graduate"></i>
                     </div>
-                    <h3>Para Todos os Níveis</h3>
-                    <p>Do iniciante ao avançado, para todas as idades, com material personalizado conforme seus objetivos.</p>
+                    <h3 class="lang-pt">Para Todos os Níveis</h3>
+                    <h3 class="lang-en">For All Levels</h3>
+                    <p class="lang-pt">Do iniciante ao avançado, para todas as idades, com material personalizado conforme seus objetivos.</p>
+                    <p class="lang-en">From beginner to advanced, for all ages, with personalized materials according to your goals.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-trophy"></i>
                     </div>
-                    <h3>Preparação para Proficiência</h3>
-                    <p>Preparação completa para o JLPT (Exame de Proficiência), do N5 ao N1, com material específico.</p>
+                    <h3 class="lang-pt">Preparação para Proficiência</h3>
+                    <h3 class="lang-en">Proficiency Preparation</h3>
+                    <p class="lang-pt">Preparação completa para o JLPT (Exame de Proficiência), do N5 ao N1, com material específico.</p>
+                    <p class="lang-en">Complete preparation for JLPT (Japanese Language Proficiency Test), from N5 to N1, with specific materials.</p>
                 </div>
             </div>
         </div>
@@ -580,16 +648,29 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <h2 class="section-title">Sobre a Professora</h2>
+            <h2 class="section-title lang-pt">Sobre a Professora</h2>
+            <h2 class="section-title lang-en">About the Teacher</h2>
+            
             <div class="about-content">
                 <div class="about-text">
                     <h3>Tamires Sensei</h3>
-                    <p>Olá! Sou Tamires, professora certificada de japonês com mais de 8 anos de experiência e mais de 250 alunos atendidos em diversos países.</p>
-                    <p>Tenho certificação JLPT N1 e formação pelo Centro Brasileiro de Língua Japonesa (CBLJ).</p>
-                    <p>Sou japonesa de terceira geração e vivi no Japão em dois períodos diferentes (o mais recente foi de 2014 à 2017, quando trabalhei na Sony).</p>
-                    <p>Moro atualmente em Curitiba e sou apaixonada por tudo que envolve a cultura japonesa: desde a língua até animes, gastronomia e cotidiano.</p>
-                    <p>Também amo gatos, filmes e jogos 🎮🐱</p>
-                    <p>Dou aulas particulares de japonês desde 2017, com foco total em personalização. Já ajudei alunos de diversos perfis: desde iniciantes até candidatos a bolsas como o MEXT e provas como o JLPT (N5 ao N1).</p>
+                    <p class="lang-pt">Olá! Sou Tamires, professora certificada de japonês com mais de 8 anos de experiência e mais de 250 alunos atendidos em diversos países.</p>
+                    <p class="lang-en">Hello! I'm Tamires, a certified Japanese teacher with over 8 years of experience and more than 250 students from different countries.</p>
+                    
+                    <p class="lang-pt">Tenho certificação JLPT N1 e formação pelo Centro Brasileiro de Língua Japonesa (CBLJ).</p>
+                    <p class="lang-en">I have JLPT N1 certification and training from the Brazilian Center of Japanese Language (CBLJ).</p>
+                    
+                    <p class="lang-pt">Sou japonesa de terceira geração e vivi no Japão em dois períodos diferentes (o mais recente foi de 2014 a 2017, quando trabalhei na Sony).</p>
+                    <p class="lang-en">I'm a third-generation Japanese and lived in Japan in two different periods (the most recent was from 2014 to 2017, when I worked at Sony).</p>
+                    
+                    <p class="lang-pt">Moro atualmente em Curitiba e sou apaixonada por tudo que envolve a cultura japonesa: desde a língua até animes, gastronomia e cotidiano.</p>
+                    <p class="lang-en">I currently live in Curitiba and I'm passionate about everything related to Japanese culture: from language to anime, cuisine, and daily life.</p>
+                    
+                    <p class="lang-pt">Também amo gatos, filmes e jogos 🎮🐱</p>
+                    <p class="lang-en">I also love cats, movies, and games 🎮🐱</p>
+                    
+                    <p class="lang-pt">Dou aulas particulares de japonês desde 2017, com foco total em personalização. Já ajudei alunos de diversos perfis: desde iniciantes até candidatos a bolsas como o MEXT e provas como o JLPT (N5 ao N1).</p>
+                    <p class="lang-en">I've been teaching private Japanese lessons since 2017, with a total focus on personalization. I've helped students of various profiles: from beginners to candidates for scholarships like MEXT and exams like JLPT (N5 to N1).</p>
                 </div>
                 <div class="about-image">
                     <img src="https://i.ibb.co/SCQFMcD/Chat-GPT-Image-15-de-set-de-2025-00-54-31.png" alt="Tamires sensei">
@@ -601,35 +682,45 @@
     <!-- Qualifications Section -->
     <section class="qualifications">
         <div class="container">
-            <h2 class="section-title">Minha Metodologia</h2>
+            <h2 class="section-title lang-pt">Minha Metodologia</h2>
+            <h2 class="section-title lang-en">My Methodology</h2>
+            
             <div class="qualifications-grid">
                 <div class="qualification-item">
                     <div class="qualification-icon">
                         <i class="fas fa-chalkboard-teacher"></i>
                     </div>
-                    <h3>Aulas Personalizadas</h3>
-                    <p>Conteúdo adaptado à rotina, metas e ritmo de cada aluno</p>
+                    <h3 class="lang-pt">Aulas Personalizadas</h3>
+                    <h3 class="lang-en">Personalized Classes</h3>
+                    <p class="lang-pt">Conteúdo adaptado à rotina, metas e ritmo de cada aluno</p>
+                    <p class="lang-en">Content adapted to each student's routine, goals, and pace</p>
                 </div>
                 <div class="qualification-item">
                     <div class="qualification-icon">
                         <i class="fas fa-book-open"></i>
                     </div>
-                    <h3>Materiais Diversificados</h3>
-                    <p>Uso de livros, vídeos, sites e exercícios personalizados</p>
+                    <h3 class="lang-pt">Materiais Diversificados</h3>
+                    <h3 class="lang-en">Diverse Materials</h3>
+                    <p class="lang-pt">Uso de livros, vídeos, sites e exercícios personalizados</p>
+                    <p class="lang-en">Use of books, videos, websites, and personalized exercises</p>
                 </div>
                 <div class="qualification-item">
                     <div class="qualification-icon">
                         <i class="fas fa-comments"></i>
                     </div>
-                    <h3>Foco em Conversação</h3>
-                    <p>Conteúdos práticos com temas atuais do seu interesse</p>
+                    <h3 class="lang-pt">Foco em Conversação</h3>
+                    <h3 class="lang-en">Focus on Conversation</h3>
+                    <p class="lang-pt">Conteúdos práticos com temas atuais do seu interesse</p>
+                    <p class="lang-en">Practical content with current topics of your interest</p>
                 </div>
                 <div class="qualification-item">
                     <div class="qualification-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3>Preparação para Exames</h3>
-                    <p>Preparação especializada para JLPT, MEXT e outros exames</p>
+                    <h3 class="lang-pt">Preparação para Exames</h3>
+                    <h3 class="lang-en">Exam Preparation</h3>
+                    <p class="lang-pt">Preparação especializada para JLPT, MEXT e outros exames</p>
+                    <p class="lang-en">Specialized preparation for JLPT, MEXT and other exams</p>
                 </div>
             </div>
         </div>
@@ -638,7 +729,9 @@
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="container">
-            <h2 class="section-title">O que os Alunos Dizem</h2>
+            <h2 class="section-title lang-pt">O que os Alunos Dizem</h2>
+            <h2 class="section-title lang-en">What Students Say</h2>
+            
             <div class="testimonial-grid" id="testimonial-container">
                 <!-- Os depoimentos serão carregados via JavaScript -->
             </div>
@@ -648,8 +741,11 @@
     <!-- Calendly Section -->
     <section class="calendly-section" id="agendamento">
         <div class="container">
-            <h2 class="section-title">Agende sua Aula Experimental</h2>
-            <p>Reserve sua aula experimental gratuita de 45 minutos e descubra como aprender japonês pode ser divertido e eficiente!</p>
+            <h2 class="section-title lang-pt">Agende sua Aula Experimental</h2>
+            <h2 class="section-title lang-en">Book Your Trial Class</h2>
+            
+            <p class="lang-pt">Reserve sua aula experimental gratuita de 45 minutos e descubra como aprender japonês pode ser divertido e eficiente!</p>
+            <p class="lang-en">Book your free 45-minute trial class and discover how learning Japanese can be fun and efficient!</p>
             
             <!-- Widget do Calendly com link corrigido -->
             <div class="calendly-inline-widget" data-url="https://calendly.com/tamiresyasmin/30min" style="min-width:320px;height:630px;"></div>
@@ -660,14 +756,18 @@
     <!-- CTA Section -->
     <section class="cta" id="contact">
         <div class="container">
-            <h2>Pronto para Começar sua Jornada?</h2>
-            <p>Entre em contato diretamente se tiver dúvidas ou quiser mais informações sobre as aulas!</p>
+            <h2 class="lang-pt">Pronto para Começar sua Jornada?</h2>
+            <h2 class="lang-en">Ready to Start Your Journey?</h2>
+            
+            <p class="lang-pt">Entre em contato diretamente se tiver dúvidas ou quiser mais informações sobre as aulas!</p>
+            <p class="lang-en">Contact me directly if you have questions or want more information about the classes!</p>
+            
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                 <a href="https://wa.me/5511975013101" class="btn btn-light">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
+                    <i class="fab fa-whatsapp"></i> <span class="lang-pt">WhatsApp</span><span class="lang-en">WhatsApp</span>
                 </a>
                 <a href="mailto:tamiresyasmin@gmail.com" class="btn btn-light">
-                    <i class="fas fa-envelope"></i> E-mail
+                    <i class="fas fa-envelope"></i> <span class="lang-pt">E-mail</span><span class="lang-en">Email</span>
                 </a>
             </div>
         </div>
@@ -679,35 +779,68 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>Let's nihonGO!</h3>
-                    <p>Aprenda japonês de forma personalizada e divertida com uma professora experiente.</p>
+                    <p class="lang-pt">Aprenda japonês de forma personalizada e divertida com uma professora experiente.</p>
+                    <p class="lang-en">Learn Japanese in a personalized and fun way with an experienced teacher.</p>
                     <div class="social-links">
                         <a href="https://wa.me/5511975013101"><i class="fab fa-whatsapp"></i></a>
                         <a href="https://www.instagram.com/letsnihongocomtamires"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
-                    <h3>Contato</h3>
+                    <h3 class="lang-pt">Contato</h3>
+                    <h3 class="lang-en">Contact</h3>
                     <p><i class="fas fa-phone"></i> (11) 97501-3101</p>
                     <p><i class="fas fa-envelope"></i> tamiresyasmin@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Aulas Online - Global</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span class="lang-pt">Aulas Online - Global</span><span class="lang-en">Online Classes/Global</span></p>
                 </div>
                 <div class="footer-column">
-                    <h3>Encontre-me também em</h3>
+                    <h3 class="lang-pt">Encontre-me também em</h3>
+                    <h3 class="lang-en">Find me also on</h3>
                     <a href="https://preply.com/pt/professor/49010"><i class="fas fa-star"></i> Preply</a>
                     <a href="https://www.superprof.com.br/professora-certificada-japones-com-anos-experiencia-aulas-personalizadas-para-todos-niveis.html"><i class="fas fa-star"></i> Superprof</a>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Let's nihonGO! - Todos os direitos reservados.</p>
+                <p>&copy; 2025 Let's nihonGO! - <span class="lang-pt">Todos os direitos reservados.</span><span class="lang-en">All rights reserved.</span></p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Language Toggle Functionality
+        const languageToggle = document.getElementById('languageToggle');
+        let currentLanguage = 'pt';
+        
+        languageToggle.addEventListener('click', function() {
+            if (currentLanguage === 'pt') {
+                // Switch to English
+                document.querySelectorAll('.lang-pt').forEach(el => {
+                    el.style.display = 'none';
+                });
+                document.querySelectorAll('.lang-en').forEach(el => {
+                    el.style.display = 'block';
+                });
+                currentLanguage = 'en';
+                languageToggle.querySelector('.lang-pt').style.display = 'none';
+                languageToggle.querySelector('.lang-en').style.display = 'inline';
+            } else {
+                // Switch to Portuguese
+                document.querySelectorAll('.lang-pt').forEach(el => {
+                    el.style.display = 'block';
+                });
+                document.querySelectorAll('.lang-en').forEach(el => {
+                    el.style.display = 'none';
+                });
+                currentLanguage = 'pt';
+                languageToggle.querySelector('.lang-pt').style.display = 'inline';
+                languageToggle.querySelector('.lang-en').style.display = 'none';
+            }
+        });
+
         // Depoimentos REAIS dos alunos da Tamires - coletados dos perfis
         const testimonials = [
             {
-                text: "Estou muito grato por ter tido a oportunidade de estudar japonês com a Sensei Tamires Yasmin! Sua paciência e entusiasmo são contagiosos - ela torna o aprendizado de um idioma divertido e envolvente. O que eu mais amo nas minhas aulas com a Tamires é como ela divide conceitos complexos em partes gerenciáveis, focando em frases práticas do dia a day que realmente me ajudam a me comunicar. Sempre que tive perguntas ou dúvidas, ela está sempre feliz em esclarecer e fornecer suporte adicional. Mas o que realmente a diferencia é seu senso de humor - ela tem uma maneira de encontrar o humor mesmo nas situações mais constrangedoras relacionadas ao idioma, o que me mantém rindo e motivado! No geral, recomendo muito a Sensei Tamires Yasmin para qualquer pessoa que esteja procurando uma experiência de aprendizado de japonês que seja solidária, envolvente e divertida. Ela é uma professora incrível e me sinto sortudo por ter sua orientação!",
+                text: "Estou muito grato por ter tido a oportunidade de estudar japonês com a Sensei Tamires Yasmin! Sua paciência e entusiasmo são contagiosos - ela torna o aprendizado de um idioma divertido e envolvente. O que eu mais amo nas minhas aulas com a Tamires é como ela divide conceitos complexos em partes gerenciáveis, focando em frases práticas do dia a dia que realmente me ajudam a me comunicar. Sempre que tive perguntas ou dúvidas, ela está sempre feliz em esclarecer e fornecer suporte adicional. Mas o que realmente a diferencia é seu senso de humor - ela tem uma maneira de encontrar o humor mesmo nas situações mais constrangedoras relacionadas ao idioma, o que me mantém rindo e motivado! No geral, recomendo muito a Sensei Tamires Yasmin para qualquer pessoa que esteja procurando uma experiência de aprendizado de japonês que seja solidária, envolvente e divertida. Ela é uma professora incrível e me sinto sortudo por ter sua orientação!",
                 author: "Andre Kano",
                 platform: "Preply",
                 rating: 5,
@@ -756,7 +889,7 @@
                 date: "Dezembro 2023"
             },
             {
-                text: "A Tami é uma ótima professora, eu já faço japonês com ela há um tempinho, achei que ia fazer só uns 2-3 meses no máximo, mais as aulas são tão agradáveis que continuei e agora até estou considerando tirar certificações. Super indico, até minha mãe está estudando com ela rs",
+                text: "A Tami é uma ótima professora, eu já faço japonês com ela há um tempinho, achei que ia fazer só uns 2-3 meses no máximo, mas as aulas são tão agradáveis que continuei e agora até estou considerando tirar certificações. Super indico, até minha mãe está estudando com ela rs",
                 author: "Alessandra Midori",
                 platform: "Superprof",
                 rating: 5,
